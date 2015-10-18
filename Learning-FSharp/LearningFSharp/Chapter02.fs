@@ -1,3 +1,5 @@
+﻿module Chapter02
+
 // Caching
 open System.Collections.Generic
 let rec fibonacci_Generic n =
@@ -32,13 +34,10 @@ let rec TowerOfHanoiRec n s f =
            
 
 ;;
+
+
 // Lazy Searching
-           
-
-// Sorting
-let listPrint = function
+let rec quicksort = function
   | [] -> []
-  | n::ns -> printfn "n => %in" n
-             List.iter (m -> printfn 
-             ns
-
+  | n::ns -> let lessthan, greaterEqual = List.partition ((>) n) ns
+             quicksort lessthan @ n :: quicksort greaterEqual
